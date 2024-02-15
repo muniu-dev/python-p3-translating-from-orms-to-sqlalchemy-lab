@@ -1,7 +1,12 @@
-#!/usr/bin/env python3
-
-from sqlalchemy import (Column, String, Integer)
+from sqlalchemy import Column, String, Integer
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+engine = create_engine('sqlite:///dogs.db')  # Define your database connection here
+Session = sessionmaker(bind=engine)
+session = Session()
+
 
 Base = declarative_base()
 
